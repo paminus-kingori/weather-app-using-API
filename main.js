@@ -3,8 +3,21 @@ const api = {
     base:"https://api.openweathermap.org/data/2.5/"
 }
 
+//start up
+const startCity = document.querySelector(".city").innerHTML;
+console.log(startCity.innerHTML)
+function startResults(){
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+startCity+'&units=metric&appid=7638c144a312ced0828ccfdeb2684209')
+    .then(weather => {
+            return weather.json();
+        }).then(displayResults);
+    
+}
+
+startResults();
+
 const icon = document.querySelector(".icon");
-icon.addEventListener("click",setQuery);
+icon.addEventListener("click",getResults);
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress",setQuery);
@@ -14,6 +27,7 @@ function setQuery(evt){
          console.log(searchbox.value);
      }
 }
+
 
 function getResults(query){
     // fetch(api.openweathermap.org/data/2.5/weather?q={query}&APPID={api.key})
