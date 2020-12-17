@@ -8,7 +8,7 @@ body{
     margin:0;
     padding: 0;
     /* background: #020219; */
-    background: linear-gradient(to top, rgb(0 0 0 / 0.4), #00000000),url(forest_bg.jpeg);
+    background:url(forest_bg.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
