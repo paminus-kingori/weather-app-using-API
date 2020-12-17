@@ -3,6 +3,9 @@ const api = {
     base:"https://api.openweathermap.org/data/2.5/"
 }
 
+const icon = document.querySelector(".icon");
+icon.addEventListener("click",setQuery);
+
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress",setQuery);
 function setQuery(evt){
@@ -20,6 +23,7 @@ function getResults(query){
     .then(weather => {
             return weather.json();
         }).then(displayResults);
+    
 }
 
 function displayResults(weather){

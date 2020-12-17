@@ -18,6 +18,24 @@ body{
     flex-direction: column;
     min-height:100vh ;
 }
+.search-holder{
+    display: flex;
+    background: white;
+    border-radius: 30px;
+    align-items: center;
+}
+.icon{
+    width: 25px;
+    height: 23px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.line{
+    width: 2px;
+    height: 30px;
+    background: #848484;
+    margin: 3px 4px;
+}
 header{
     display: flex;
     justify-content: center;
@@ -30,13 +48,10 @@ header input{
     padding: 10px 15px;
     border: none;
     outline: none;
-    background-color: rgb(255 255 255);
+    background:none;
     border-radius: 30px;
-    /* border-bottom: 3px solid rgb(226, 226, 31); */
     color: #313133;
     font-size: 20px;
-    transition: 0.3s ease-out;
-
 }
 
 main{
@@ -72,7 +87,7 @@ main{
     text-shadow: 1px 3px 4px rgba(0, 0, 0, 0.56);
 }
 .temp span{
-    font-size: 80px;
+    font-size: 85px;
     font-weight: 500;
 
 }
