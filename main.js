@@ -5,13 +5,17 @@ const api = {
 
 //start up
 const startCity = document.querySelector(".city").innerHTML;
-console.log(startCity.innerHTML)
+// console.log(startCity.innerHTML)
 function startResults(){
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+startCity+'&units=metric&appid=7638c144a312ced0828ccfdeb2684209')
     .then(weather => {
             return weather.json();
-        }).then(displayResults);
-    
+        })
+        .then(displayResults)
+        .catch((error)=>{
+            alert(error)
+        })
+        
 }
 
 startResults();
@@ -24,24 +28,25 @@ searchbox.addEventListener("keypress",setQuery);
 function setQuery(evt){
      if(evt.keyCode == 13){
          getResults(searchbox.value);
-         console.log(searchbox.value);
+        //  console.log(searchbox.value);
      }
 }
 
 
 function getResults(query){
-    // fetch(api.openweathermap.org/data/2.5/weather?q={query}&APPID={api.key})
-    //fetch('${api.base}weather?q=${query}&APPID=${api.key}')
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+searchbox.value+'&units=metric&appid=7638c144a312ced0828ccfdeb2684209')
-    // fetch('https://api.openweathermap.org/data/2.5/weather?q=`${query}&appid=${7638c144a312ced0828ccfdeb2684209}')
     .then(weather => {
             return weather.json();
-        }).then(displayResults);
+        })
+    .then(displayResults)
+    .catch(()=>{
+            alert("Error. Please try another city")
+        })
     
 }
 
 function displayResults(weather){
-    console.log(weather);
+    // console.log(weather);
     let city = document.querySelector('.city');
     city.innerText = `${weather.name},${weather.sys.country}`;
     let now = new Date();
